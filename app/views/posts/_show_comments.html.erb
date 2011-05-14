@@ -11,7 +11,7 @@
 
       <%= comment.body %>
       <br />
-      <% if current_user.id == comment.user_id %>
+      <% if current_user and current_user.id == comment.user_id %>
         <%= link_to 'Edit', edit_comment_path(comment) %>
         <%= link_to 'Delete', comment, :confirm => 'Are you sure?', :method => :delete %>
       <% end %>

@@ -3,10 +3,13 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    sponsored = current_user.posts
     @sponsored_ids = []
-    for s in sponsored do
-      @sponsored_ids << s.id
+    if current_user
+      sponsored = current_user.posts
+      @sponsored_ids = []
+      for s in sponsored do
+        @sponsored_ids << s.id
+      end
     end
 
     respond_to do |format|
@@ -17,7 +20,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @is_sponsored = !Sponsorship.where("user_id = ? AND post_id = ?", current_user.id, @post.id).first.nil?
+    if current_user
+      @is_sponsored = !Sponsorship.where("user_id = ? AND post_id = ?", current_user.id, @post.id).first.nil?
+    else
+      @is_sponsored = false
+    end
 
     respond_to do |format|
       format.html # show.html.erb
