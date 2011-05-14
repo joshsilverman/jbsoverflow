@@ -16,7 +16,7 @@
         <%= post.title %>
         <br />
         <%= link_to 'Show', post %>
-        <% if current_user and post.user_id == current_user.id %>
+        <% if current_user %>
           <%= link_to 'Edit', edit_post_path(post) %>
           <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
         <% end  %>
