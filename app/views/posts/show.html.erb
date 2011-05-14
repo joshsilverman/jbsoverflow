@@ -2,13 +2,13 @@
 
   <div class="vote vote_post">
     <% if current_user and current_user.voted_for?(@post) %>
-      <%= link_to "", "posts/vote/" + @post.id.to_s, :class => "vote-up voted-up" %>
+      <%= link_to "", "/posts/vote/" + @post.id.to_s, :class => "vote-up voted-up" %>
     <% else %>
-      <%= link_to "", "posts/vote/" + @post.id.to_s, :class => "vote-up" %>
+      <%= link_to "", "/posts/vote/" + @post.id.to_s, :class => "vote-up" %>
     <% end %>
 
     <span class="vote-count"><%= @post.plusminus %></span>
-    <%= link_to "", "posts/voted/" + @post.id.to_s, :class => "vote-down" %>
+    <%= link_to "", "/posts/voted/" + @post.id.to_s, :class => "vote-down" %>
 
     <% if @is_sponsored %>
       <%= link_to '', "/posts/unsponsor/" + @post.id.to_s, :class => "star star-on" %>
