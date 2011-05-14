@@ -17,8 +17,10 @@
   </div>
   <div class="field">
     <%= f.label "Description" %><br />
-    <%= f.text_area :body %>
+    <textarea class="mceEditor" cols="40" id="post_body" name="post[body]" rows="20"></textarea>
   </div>
+
+  <br />
   <div class="actions">
     <%= f.submit %>
   </div>

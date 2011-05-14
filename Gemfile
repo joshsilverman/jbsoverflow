@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'thumbs_up'
 gem 'devise'
 gem 'heroku'
+gem 'tiny_mce'
 
 # Use unicorn as the web server
 # gem 'unicorn'

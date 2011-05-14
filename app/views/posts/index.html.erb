@@ -42,6 +42,10 @@
             <%=  sponsor.email.to_s + " "  %>
           <% end %>
         </p>
+        <p style="font-size:.9em; color:darkgrey;">
+          <em>Last modified:</em>
+          <%=  post.updated_at.to_s  %>
+        </p>
         <% if current_user and @sponsored_ids.include? post.id %>
           <%= link_to 'Edit', edit_post_path(post) %>
           <%= link_to 'Delete', post, :confirm => 'Are you sure?', :method => :delete %>

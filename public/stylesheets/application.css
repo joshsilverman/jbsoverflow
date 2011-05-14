@@ -59,12 +59,20 @@ a {
 }
 
 .modal textarea {
-    width:100%;
+    width:100% !important;
     height:100px;
 }
 
 .modal textarea, input, password {
     border: solid lightgrey 1px;
+}
+
+.edit-modal {
+    width:620px;
+}
+
+.edit-modal textarea {
+    height:250px;
 }
 
 .rules {

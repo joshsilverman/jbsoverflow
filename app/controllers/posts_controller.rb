@@ -1,5 +1,12 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => ["index", "show", "update"]
+  uses_tiny_mce :options => {
+          :dialog_type => "modal",
+          :theme => 'advanced',
+          :theme_advanced_resizing => true,
+          :theme_advanced_resize_horizontal => false,
+          :plugins => %w{ table fullscreen }
+        }
 
   def index
     @posts = Post.all

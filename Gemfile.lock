@@ -87,6 +87,7 @@ GEM
       mime-types (>= 1.16)
     thor (0.14.6)
     thumbs_up (0.4.1)
+    tiny_mce (0.1.4)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
@@ -104,3 +105,4 @@ DEPENDENCIES
   mysql2
   rails (= 3.0.3)
   thumbs_up
+  tiny_mce
