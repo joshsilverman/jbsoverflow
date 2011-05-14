@@ -46,6 +46,7 @@ a {
     margin:40px auto 20px;
     padding:0px 30px 30px;
     background-color: white;
+    position:relative;
 }
 
 .modal .title {
@@ -64,6 +65,27 @@ a {
 
 .modal textarea, input, password {
     border: solid lightgrey 1px;
+}
+
+.rules {
+    width:190px;
+    position:absolute;
+    left:461px !important;
+    top:0px;
+    border-left:none;
+    background-color:#F2F2F2;
+
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 5px 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 5px 5px;
+    -moz-border-radius:0px 5px 5px 0px;
+}
+
+.rules ol, .rules li {
+    margin:0;
+    padding:2px 0;
+    color:#555;
 }
 
 .notices {
@@ -89,7 +111,7 @@ a {
 }
 
 .vote-up, .vote-down {
-    background: url(http://sstatic.net/stackoverflow/img/sprites.png?v=3);
+    background: url(/images/sprites.png);
     display: block;
     margin: 0 auto;
     width: 41px;
@@ -98,6 +120,10 @@ a {
 
 .vote-up {
     background-position: 0px -265px;
+}
+
+.voted-up {
+    background-position: 0px -230px;
 }
 
 .vote-down {
@@ -115,7 +141,7 @@ a {
 }
 
 .star {
-    background: url(http://sstatic.net/stackoverflow/img/sprites.png?v=3);
+    background: url(/images/sprites.png);
     background-position: 0px -150px;
     width: 33px;
     height: 31px;

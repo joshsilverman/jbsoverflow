@@ -1,5 +1,18 @@
-<div class="modal rounded_border">
+<%= stylesheet_link_tag "ideas" %>
+
+<div class="modal rounded_border ideas">
   <div class="title">Ideas</div>
+
+  <div class="modal rounded_border rules">
+    <div class="title">How it works</div>
+    <ol>
+      <li>Sponsor by clicking the star</li>
+      <li>Maximum sponsorships: 3</li>
+      <li>Maximum per project: 5</li>
+      <li>Votes per person: 20</li>
+      <li>Maximum votes per project: 5</li>
+    </ol>
+  </div>
 
   <%= link_to 'New Idea!', new_post_path %>
   <br/><br/>
@@ -8,7 +21,11 @@
 
       <div class="comment">
         <div class="vote">
-          <%= link_to "", "posts/vote/" + post.id.to_s, :class => "vote-up" %>
+          <% if current_user and current_user.voted_for?(post) %>
+            <%= link_to "", "posts/vote/" + post.id.to_s, :class => "vote-up voted-up" %>
+          <% else %>
+            <%= link_to "", "posts/vote/" + post.id.to_s, :class => "vote-up" %>
+          <% end %>
           <span class="vote-count"><%= post.plusminus %></span>
           <%= link_to "", "posts/voted/" + post.id.to_s, :class => "vote-down" %>
           <% if @sponsored_ids.include? post.id %>

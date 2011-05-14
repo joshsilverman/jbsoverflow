@@ -86,14 +86,22 @@ class PostsController < ApplicationController
 
   def vote
     @post = Post.find(params[:id])
-    current_user.vote_exclusively_for(@post)
-    redirect_to(@post, :notice => 'Successfully voted.')
+    if current_user.vote_count(:all) < 20
+      current_user.vote_exclusively_for(@post)
+      redirect_to(@post, :notice => 'Successfully voted.')
+    else
+      redirect_to(@post, :notice => 'You\'ve already voted 10 times.')
+    end
   end
 
   def voted
-    @post = Post.find(params[:id])
-    current_user.vote_exclusively_against(@post)
-    redirect_to(@post, :notice => 'Successfully voted.')
+    @vote = Vote.where("voter_id = ? AND voteable_id = ? AND voteable_type = 'Post'", current_user.id, params[:id]).first
+    if @vote
+      @vote.destroy
+      redirect_to("", :notice => 'Successfully unvoted.')
+    else
+      redirect_to("", :notice => 'Can only unvote, not vote against.')
+    end
   end
 
   def sponsor

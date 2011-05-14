@@ -55,8 +55,13 @@ class CommentsController < ApplicationController
   end
 
   def voted
-    @comment = Comment.find(params[:id])
-    current_user.vote_exclusively_against(@comment)
-    redirect_to(@comment.post, :notice => 'Successfully voted.')
+    @post = Comment.find(params[:id]).post
+    @vote = Vote.where("voter_id = ? AND voteable_id = ? AND voteable_type = 'Comment'", current_user.id, params[:id]).first
+    if @vote
+      @vote.destroy
+      redirect_to(@post, :notice => 'Successfully unvoted.')
+    else
+      redirect_to(@post, :notice => 'Can only unvote, not vote against.')
+    end
   end
 end
