@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-  has_many :posts
+  has_many :posts, :through => :sponsorships, :uniq => true
+  has_many :sponsorships
   has_many :comments
 
   acts_as_voter

@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   has_many :comments
-  belongs_to :user
+  has_many :users, :through => :sponsorships, :uniq => true
+  has_many :sponsorships
   acts_as_voteable
 end

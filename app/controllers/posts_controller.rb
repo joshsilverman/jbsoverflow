@@ -3,10 +3,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-
-#    for post in @posts do
-#      post.vote =
-#    end
+    sponsored = current_user.posts
+    @sponsored_ids = []
+    for s in sponsored do
+      @sponsored_ids << s.id
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @is_sponsored = !Sponsorship.where("user_id = ? AND post_id = ?", current_user.id, @post.id).first.nil?
 
     respond_to do |format|
       format.html # show.html.erb
@@ -85,5 +87,25 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     current_user.vote_exclusively_against(@post)
     redirect_to(@post, :notice => 'Successfully voted.')
+  end
+
+  def sponsor
+    @post = Post.find(params[:id])
+
+    if @post.users.count >= 5
+      redirect_to(@post, :notice => 'Already 5 sponsors.')
+    elsif current_user.posts.count >= 3
+      redirect_to(@post, :notice => 'You are already sponsoring 3 ideas.')
+    else
+      current_user.posts << @post
+      redirect_to(@post, :notice => 'You are now a sponsor!')
+    end
+  end
+
+  def unsponsor
+    @post = Post.find(params[:id])
+    @sponsorship = Sponsorship.where("user_id = ? AND post_id = ?", current_user.id, @post.id).first
+    @sponsorship.destroy if @sponsorship
+    redirect_to("/", :notice => 'You are no longer a sponsor!')
   end
 end

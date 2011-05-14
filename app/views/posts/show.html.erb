@@ -4,6 +4,11 @@
     <%= link_to "", "/posts/vote/" + @post.id.to_s, :class => "vote-up" %>
     <span class="vote-count"><%= @post.plusminus %></span>
     <%= link_to "", "/posts/voted/" + @post.id.to_s, :class => "vote-down" %>
+    <% if @is_sponsored %>
+      <%= link_to '', "/posts/unsponsor/" + @post.id.to_s, :class => "star star-on" %>
+    <% else %>
+      <%= link_to '', "/posts/sponsor/" + @post.id.to_s, :class => "star" %>
+    <% end %>
   </div>
 
   <div class="title">Idea</div>
@@ -14,8 +19,17 @@
     <%= @post.body %>
   </p>
 
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Back', posts_path %>
+  <p>
+    <em>Sponsors:</em>
+    <% for sponsor in @post.users do %>
+      <%=  sponsor.email.to_s + " "  %>
+    <% end %>
+  </p>
+
+  <% if @is_sponsored %>
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%= link_to 'Back', posts_path %>
+  <% end %>
 </div>
 
 <div class="modal rounded_border">

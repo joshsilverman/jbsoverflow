@@ -11,14 +11,23 @@
           <%= link_to "", "posts/vote/" + post.id.to_s, :class => "vote-up" %>
           <span class="vote-count"><%= post.plusminus %></span>
           <%= link_to "", "posts/voted/" + post.id.to_s, :class => "vote-down" %>
+          <% if @sponsored_ids.include? post.id %>
+            <%= link_to '', "posts/unsponsor/" + post.id.to_s, :class => "star star-on" %>
+          <% else %>
+            <%= link_to '', "posts/sponsor/" + post.id.to_s, :class => "star" %>
+          <% end %>
         </div>
 
-        <%= post.title %>
-        <br />
-        <%= link_to 'Show', post %>
-        <% if current_user %>
+        <%= link_to post.title, post %>
+        <p style="font-size:.9em; color:darkgrey;">
+          <em>Sponsors:</em>
+          <% for sponsor in post.users do %>
+            <%=  sponsor.email.to_s + " "  %>
+          <% end %>
+        </p>
+        <% if current_user and @sponsored_ids.include? post.id %>
           <%= link_to 'Edit', edit_post_path(post) %>
-          <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+          <%= link_to 'Delete', post, :confirm => 'Are you sure?', :method => :delete %>
         <% end  %>
       </div>
   <% end %>

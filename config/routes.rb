@@ -8,6 +8,8 @@ Blog::Application.routes.draw do
 
   match 'posts/vote/:id' => 'posts#vote'
   match 'posts/voted/:id' => 'posts#voted'
+  match 'posts/sponsor/:id' => 'posts#sponsor'
+  match 'posts/unsponsor/:id' => 'posts#unsponsor'
   match 'comments/vote/:id' => 'comments#vote'
   match 'comments/voted/:id' => 'comments#voted'
 

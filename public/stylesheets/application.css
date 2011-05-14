@@ -76,7 +76,7 @@ a {
     margin: 10px 0 10px 30px;
     padding-left:10px;
     border-left:5px lightgrey solid;
-    min-height: 70px;
+    min-height: 100px;
 }
 
 .vote {
@@ -108,4 +108,17 @@ a {
 .vote_post {
     margin-left: -80px;
     margin-top: 20px;
+}
+
+.star-on {
+    background-position: 0px -190px !important;
+}
+
+.star {
+    background: url(http://sstatic.net/stackoverflow/img/sprites.png?v=3);
+    background-position: 0px -150px;
+    width: 33px;
+    height: 31px;
+    margin:0 auto;
+    display:block;
 }
