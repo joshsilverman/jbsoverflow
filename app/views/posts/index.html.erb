@@ -1,0 +1,26 @@
+<div class="modal rounded_border">
+  <div class="title">Ideas</div>
+
+  <%= link_to 'New Idea!', new_post_path %>
+  <br/><br/>
+
+  <% @posts.each do |post| %>
+
+      <div class="comment">
+        <div class="vote">
+          <%= link_to "", "posts/vote/" + post.id.to_s, :class => "vote-up" %>
+          <span class="vote-count"><%= post.plusminus %></span>
+          <%= link_to "", "posts/voted/" + post.id.to_s, :class => "vote-down" %>
+        </div>
+
+        <%= post.title %>
+        <br />
+        <%= link_to 'Show', post %>
+        <% if current_user and post.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_post_path(post) %>
+          <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+        <% end  %>
+      </div>
+  <% end %>
+
+</div>

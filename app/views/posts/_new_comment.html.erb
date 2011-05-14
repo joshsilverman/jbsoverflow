@@ -1,0 +1,23 @@
+<h1>New comment</h1>
+
+<% form_for :comment, @comment, :url => comments_path do |f| %>
+  <% if @comment and @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_area :body %>
+  </div>
+  <%= f.hidden_field "post_id", :value => @post.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

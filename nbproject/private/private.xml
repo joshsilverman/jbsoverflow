@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/home/josh/Documents/brandeis/jbs/ideaoverflow/blog/Gemfile</file>
+        <file>file:/home/josh/Documents/brandeis/jbs/ideaoverflow/blog/app/controllers/users_controller.rb</file>
+        <file>file:/home/josh/Documents/brandeis/jbs/ideaoverflow/blog/app/controllers/comments_controller.rb</file>
+        <file>file:/home/josh/Documents/brandeis/jbs/ideaoverflow/blog/app/controllers/posts_controller.rb</file>
+        <file>file:/home/josh/Documents/brandeis/jbs/ideaoverflow/blog/app/views/devise/registrations/new.html.erb</file>
+        <file>file:/home/josh/Documents/brandeis/jbs/ideaoverflow/blog/app/views/posts/index.html.erb</file>
+        <file>file:/home/josh/Documents/brandeis/jbs/ideaoverflow/blog/app/views/layouts/application.html.erb</file>
+        <file>file:/home/josh/Documents/brandeis/jbs/ideaoverflow/blog/public/stylesheets/application.css</file>
+        <file>file:/home/josh/Documents/brandeis/jbs/ideaoverflow/blog/app/views/posts/new.html.erb</file>
+    </open-files>
+</project-private>

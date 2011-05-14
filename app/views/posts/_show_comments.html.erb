@@ -1,0 +1,21 @@
+<div class="title">Comments</div>
+
+<% @post.comments.each do |comment| %>
+
+    <div class="comment">
+      <div class="vote">
+        <%= link_to "", "/comments/vote/" + comment.id.to_s, :class => "vote-up" %>
+        <span class="vote-count"><%= comment.plusminus %></span>
+        <%= link_to "", "/comments/voted/" + comment.id.to_s, :class => "vote-down" %>
+      </div>
+
+      <%= comment.body %>
+      <br />
+      <% if current_user.id == comment.user_id %>
+        <%= link_to 'Edit', edit_comment_path(comment) %>
+        <%= link_to 'Delete', comment, :confirm => 'Are you sure?', :method => :delete %>
+      <% end %>
+    </div>
+<% end %>
+
+<br />

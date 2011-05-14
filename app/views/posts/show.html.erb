@@ -1,0 +1,24 @@
+<div class="modal rounded_border">
+
+  <div class="vote vote_post">
+    <%= link_to "", "/posts/vote/" + @post.id.to_s, :class => "vote-up" %>
+    <span class="vote-count"><%= @post.plusminus %></span>
+    <%= link_to "", "/posts/voted/" + @post.id.to_s, :class => "vote-down" %>
+  </div>
+
+  <div class="title">Idea</div>
+  <h2><%= @post.title %></h2>
+
+  <p>
+    <em>Description:</em>
+    <%= @post.body %>
+  </p>
+
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
+</div>
+
+<div class="modal rounded_border">
+  <%= render :partial => "show_comments" %>
+  <%= render :partial => "new_comment" %>
+</div>

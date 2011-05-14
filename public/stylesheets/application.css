@@ -1,0 +1,111 @@
+.rounded_border {
+    border: 1px solid lightGrey;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+}
+
+root, html, body {
+    background-color: #F7FFF7 !important;
+    padding:0;
+    margin:0;
+}
+
+.header {
+    width:400px;
+    margin:0px auto -30px;
+    padding:0px 30px 30px;
+    font-size: 25px;
+}
+
+.header img {
+    width:75px;
+    height:75px;
+    margin-left:-45px;
+    margin-bottom:-8px;
+}
+
+.header a {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+h1 {
+    font-size: 14px;
+    color:grey;
+}
+
+a {
+    color:grey;
+}
+
+.modal {
+    width:400px;
+    margin:40px auto 20px;
+    padding:0px 30px 30px;
+    background-color: white;
+}
+
+.modal .title {
+    color:grey;
+    margin-top:-19px;
+    margin-left:-20px;
+    margin-bottom:20px;
+    font-size:20px;
+
+}
+
+.modal textarea {
+    width:100%;
+    height:100px;
+}
+
+.modal textarea, input, password {
+    border: solid lightgrey 1px;
+}
+
+.notices {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #FFEA8C;
+}
+
+.comment {
+    margin: 10px 0 10px 30px;
+    padding-left:10px;
+    border-left:5px lightgrey solid;
+    min-height: 70px;
+}
+
+.vote {
+    float:left;
+    clear:left;
+    margin-left:-60px;
+    text-align: center;
+    font-weight: bold;
+    color:grey;
+}
+
+.vote-up, .vote-down {
+    background: url(http://sstatic.net/stackoverflow/img/sprites.png?v=3);
+    display: block;
+    margin: 0 auto;
+    width: 41px;
+    height: 25px;
+}
+
+.vote-up {
+    background-position: 0px -265px;
+}
+
+.vote-down {
+
+    background-position: 0px -300px;
+}
+
+.vote_post {
+    margin-left: -80px;
+    margin-top: 20px;
+}
